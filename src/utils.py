@@ -156,8 +156,8 @@ def prepare_dataloaders(dish_dataset, config):
     train_loader = DataLoader(train_dataset, batch_size=config.BATCH_SIZE, shuffle=True, num_workers=0)
     test_loader = DataLoader(test_dataset, batch_size=config.BATCH_SIZE, shuffle=False, num_workers=0)
     
-    print(f"\n✓ Train: {len(train_loader)} batches ({len(train_dataset)} samples)")
-    print(f"✓ Test: {len(test_loader)} batches ({len(test_dataset)} samples)\n")
+    print(f"\nTrain: {len(train_loader)} batches ({len(train_dataset)} samples)")
+    print(f"Test: {len(test_loader)} batches ({len(test_dataset)} samples)\n")
     
     return train_loader, test_loader
 
@@ -185,7 +185,7 @@ class CalorieEstimationModel(nn.Module):
         self.image_proj = nn.Linear(self.image_model.num_features, config.HIDDEN_DIM)
         self.mass_proj = nn.Linear(1, config.HIDDEN_DIM)
         
-        # Regression head (БЕЗ GATING)
+        # Regression head 
         self.regressor = nn.Sequential(
             nn.Linear(config.HIDDEN_DIM, config.HIDDEN_DIM // 2),
             nn.LayerNorm(config.HIDDEN_DIM // 2),

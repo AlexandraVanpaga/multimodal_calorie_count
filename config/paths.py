@@ -1,6 +1,8 @@
 import os
 
-BASE_DIR = r'C:\Users\Alexandra\Desktop\multimodal_calorie_count'
+# BASE_DIR = r'C:\Users\Alexandra\Desktop\multimodal_calorie_count'
+BASE_DIR = '/home/ubuntu/multimodal_calorie_count'
+
 DATA_DIR = os.path.join(BASE_DIR, 'data', 'nutrition', 'data')
 
 PATHS = {
